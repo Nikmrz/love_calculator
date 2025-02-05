@@ -5,7 +5,7 @@ import '../controllers/quotes_controller.dart';
 class QuotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final QuotesController controller = Get.find();
+    final QuotesController controller = Get.put(QuotesController()); // Ensure initialization
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +31,7 @@ class QuotesView extends StatelessWidget {
                     ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => controller.getNewQuote(),
+                onPressed: controller.getNewQuote,
                 child: Text('Get a New Quote'),
               ),
             ],
